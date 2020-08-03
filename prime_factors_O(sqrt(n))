@@ -1,0 +1,12 @@
+def prime_divisors(n):
+  i=2
+  while(i*i<=n):
+    if n%i == 0 :
+      cnt=0
+      while(n%i==0):
+        cnt+=1
+        n=n//i
+      print("(",i,"^",cnt,end=" ) * ")
+    i+=1
+  if n> 1:
+    print("(",n,"^ 1 )")
