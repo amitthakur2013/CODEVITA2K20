@@ -1,1 +1,31 @@
+#Modular GCD
+def power(a,n,d):
+  res=1
+  while(n):
+    if (n%2):
+      res=((res%d)*(a%d))%d 
+      n-=1
+    else:
+      a=((a%d)*(a%d))%d
+      n//=2
+  return res
 
+t=int(input())
+for _ in range(t):
+  a,b,n=map(int,input().split())
+  d=pow(10,9)+7
+  ans=1
+  if a==b:
+    ans=(power(a,n,d)+power(b,n,d))%d
+  else:
+    i=1
+    ans=1
+    num=a-b
+    while(i*i<=num):
+      if num%i==0:
+        if (power(a,n,i)+power(b,n,i))%i==0:
+          ans=max(ans,i)
+        if (power(a,n,num//i)+power(b,n,num//i))%(num//i)==0:
+          ans=max(ans,(num//i))
+      i+=1
+  print(ans%d)
