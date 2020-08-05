@@ -1,0 +1,14 @@
+import math
+a,b=map(int,input().split())
+g=math.gcd(a,b)
+i,cnt=1,0
+while(i*i<=n):
+  if g % i == 0:
+    cnt+=1
+    if (g// i == i):
+      i+=1
+      continue
+    else:
+      cnt+=1
+  i+=1
+print(cnt)
