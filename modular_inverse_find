@@ -1,0 +1,7 @@
+a^m-1=1(mod m)
+
+**Modular inverse exists only if a,m are coprime i.e gcd(a,m) is 1
+
+Hence Modular inverse = a^m-2
+
+using binary exponentiation we can calculate the modular inverse of a number in O (log N) time.
