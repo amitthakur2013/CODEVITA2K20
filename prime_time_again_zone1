@@ -1,0 +1,33 @@
+def isPrime(n):
+  flag=0
+  if n==1:
+    return False
+  i=2
+  while(i*i<=n):
+    if n%i==0:
+      return False 
+    i+=1
+  return True 
+
+d,p=map(int,input().split())
+if(d%p!=0):
+  print(0)
+else:
+  gap=d//p
+  j=2
+  ans=0
+  while(j<=d):
+    cnt=0
+    flag=0
+    for i in range(p):
+      if((j+i*gap) > d):
+        flag=1
+        break
+      if(isPrime(j+(i*gap))):
+        cnt+=1
+    if flag==1:
+      break
+    if cnt == p:
+      ans+=1
+    j+=1
+  print(ans)
